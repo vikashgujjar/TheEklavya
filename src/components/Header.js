@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { services } from "@/data/services";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showServices, setShowServices] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -47,43 +49,45 @@ export default function Header() {
         </div>
       </div>
       <nav className="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
-        <Link href="#" className="flex items-center gap-3 shrink-0">
+        <Link href="/" className="flex items-center gap-3 shrink-0">
           <img src="/logo.png" className="h-12" />
         </Link>
         <ul className="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-700">
           <li>
-            <Link href="#about" className="nl hover:text-[#f27904] transition-colors">
+            <Link href="/" className="nl hover:text-[#f27904] transition-colors">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="nl hover:text-[#f27904] transition-colors">
               About
             </Link>
           </li>
-          <li>
-            <Link href="#services" className="nl hover:text-[#f27904] transition-colors">
-              Services
+          <li className="relative group">
+            <Link href="/services" className="nl hover:text-[#f27904] transition-colors flex items-center gap-1">
+              Services <i className="fas fa-chevron-down text-[10px] group-hover:rotate-180 transition-transform"></i>
             </Link>
+            <div className="absolute top-full left-0 w-64 bg-white border border-gray-100 shadow-xl rounded-2xl py-4 pt-6 opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+              {services.map((svc) => (
+                <Link key={svc.slug} href={`/services/${svc.slug}`} className="block px-6 py-2.5 hover:bg-orange-50 hover:text-[#f27904] text-sm transition-colors">
+                  {svc.title}
+                </Link>
+              ))}
+            </div>
           </li>
           <li>
-            <Link href="#process" className="nl hover:text-[#f27904] transition-colors">
-              How It Works
-            </Link>
-          </li>
-          <li>
-            <Link href="#whyus" className="nl hover:text-[#f27904] transition-colors">
-              Why Us
-            </Link>
-          </li>
-          <li>
-            <Link href="#faq" className="nl hover:text-[#f27904] transition-colors">
-              FAQ
-            </Link>
-          </li>
-          <li>
-            <Link href="#blog" className="nl hover:text-[#f27904] transition-colors">
+            <Link href="/blog" className="nl hover:text-[#f27904] transition-colors">
               Blog
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className="nl hover:text-[#f27904] transition-colors">
+              Contact
             </Link>
           </li>
         </ul>
         <Link
-          href="#qform"
+          href="/contact"
           className="hidden lg:inline-flex items-center gap-2 bg-[#f27904] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-200 hover:-translate-y-0.5"
         >
           Get Free Quote <i className="fas fa-arrow-right text-xs"></i>
@@ -94,44 +98,54 @@ export default function Header() {
           <span className="w-4 h-0.5 bg-gray-800 block"></span>
         </button>
       </nav>
+
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div id="mobileMenu" className="lg:hidden bg-white border-t border-gray-100 px-4 pb-5">
+        <div id="mobileMenu" className="lg:hidden bg-white border-t border-gray-100 px-4 pb-8 overflow-y-auto max-h-[80vh]">
           <ul className="flex flex-col gap-1 text-sm font-medium text-gray-700 pt-4">
             <li>
-              <Link href="#about" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
+              <Link href="/" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
                 About
               </Link>
             </li>
-            <li>
-              <Link href="#services" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
-                Services
-              </Link>
+            <li className="space-y-1">
+              <div className="flex items-center justify-between py-2 cursor-pointer" onClick={() => setShowServices(!showServices)}>
+                <span className="hover:text-[#f27904]">Services</span>
+                <i className={`fas fa-chevron-down text-[10px] transition-transform ${showServices ? 'rotate-180' : ''}`}></i>
+              </div>
+              {showServices && (
+                <div className="pl-4 pb-2 flex flex-col gap-1 border-l-2 border-orange-100 ml-1">
+                  <Link href="/services" onClick={toggleMenu} className="py-2 text-gray-500 font-bold">
+                    All Services
+                  </Link>
+                  {services.map((svc) => (
+                    <Link key={svc.slug} href={`/services/${svc.slug}`} onClick={toggleMenu} className="py-2 text-gray-500 hover:text-[#f27904]">
+                      {svc.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </li>
             <li>
-              <Link href="#process" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
-                How It Works
-              </Link>
-            </li>
-            <li>
-              <Link href="#whyus" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
-                Why Us
-              </Link>
-            </li>
-            <li>
-              <Link href="#faq" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
-                FAQ
-              </Link>
-            </li>
-            <li>
-              <Link href="#blog" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
+              <Link href="/blog" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
                 Blog
               </Link>
             </li>
-            <li className="pt-2">
+            <li>
+              <Link href="/contact" onClick={toggleMenu} className="block py-2 hover:text-[#f27904]">
+                Contact
+              </Link>
+            </li>
+            <li className="pt-4">
               <Link
-                href="#qform"
+                href="/contact"
                 onClick={toggleMenu}
-                className="inline-flex items-center gap-2 bg-[#f27904] text-white px-5 py-2.5 rounded-full font-semibold text-sm"
+                className="flex items-center justify-center gap-2 bg-[#f27904] text-white px-5 py-3 rounded-full font-bold text-sm shadow-lg shadow-orange-100"
               >
                 Get Free Quote
               </Link>

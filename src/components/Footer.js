@@ -27,10 +27,17 @@ export default function Footer() {
             <div>
               <h4 className="font-display font-bold text-lg mb-5">Our Services</h4>
               <ul className="space-y-3">
-                {["Local Household Shifting", "Domestic Shifting", "Corporate Relocation", "International Transportation", "Car & Bike Transport", "Warehouse Services"].map((svc, idx) => (
+                {[
+                  { name: "Local Household Shifting", href: "/services/local-household-shifting" },
+                  { name: "Domestic Shifting", href: "/services/domestic-shifting-services" },
+                  { name: "Corporate Relocation", href: "/services/corporate-relocation-services" },
+                  { name: "International Transportation", href: "/services/international-transportation" },
+                  { name: "Car & Bike Transport", href: "/services/car-bike-transportation" },
+                  { name: "Warehouse Services", href: "/services/warehouse-services" }
+                ].map((svc, idx) => (
                   <li key={idx}>
-                    <Link href="#" className="text-blue-200 text-sm hover:text-[#f27904] transition-colors flex items-center gap-2">
-                      <i className="fas fa-chevron-right text-xs text-[#f27904]"></i>{svc}
+                    <Link href={svc.href} className="text-blue-200 text-sm hover:text-[#f27904] transition-colors flex items-center gap-2">
+                      <i className="fas fa-chevron-right text-xs text-[#f27904]"></i>{svc.name}
                     </Link>
                   </li>
                 ))}
@@ -40,9 +47,11 @@ export default function Footer() {
               <h4 className="font-display font-bold text-lg mb-5">Quick Links</h4>
               <ul className="space-y-3">
                 {[
-                  { name: "About Us", href: "#about" }, { name: "How It Works", href: "#process" },
-                  { name: "Why Choose Us", href: "#whyus" }, { name: "Testimonials", href: "#testimonials" },
-                  { name: "Blog", href: "#blog" }, { name: "FAQ", href: "#faq" }
+                  { name: "About Us", href: "/about" }, 
+                  { name: "Services", href: "/services" },
+                  { name: "Blog", href: "/blog" }, 
+                  { name: "Contact Us", href: "/contact" },
+                  { name: "FAQ", href: "/contact" }
                 ].map((link, idx) => (
                   <li key={idx}>
                     <Link href={link.href} className="text-blue-200 text-sm hover:text-[#f27904] transition-colors flex items-center gap-2">

@@ -2,66 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-const services = [
-  {
-    title: "Local Household Shifting",
-    desc: "Moving within the city? Our expert packers handle every item with utmost care — from fragile crockery to heavy furniture.",
-    icon: "fas fa-home",
-    img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80",
-    theme: "text-[#f27904]",
-    bg: "bg-white text-[#0f458b]",
-    iconBg: "bg-white",
-  },
-  {
-    title: "Domestic Shifting Services",
-    desc: "Relocating across states? Our nationwide network ensures safe, timely delivery to any corner of India with real-time GPS tracking.",
-    icon: "fas fa-truck-moving",
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-    theme: "text-[#0f458b]",
-    bg: "bg-white text-[#0f458b]",
-    iconBg: "bg-white",
-  },
-  {
-    title: "Corporate Relocation Services",
-    desc: "We understand business continuity. Our corporate team minimizes downtime and ensures smooth office transitions with a dedicated project manager.",
-    icon: "fas fa-building",
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
-    theme: "text-white",
-    bg: "bg-[#0f458b] text-white border-transparent",
-    iconBg: "bg-white/20",
-    overlay: "from-[#0f458b]/85",
-    descColor: "text-blue-200"
-  },
-  {
-    title: "International Transportation",
-    desc: "Moving abroad? Our team handles customs clearance, documentation, and door-to-door delivery to 100+ countries worldwide.",
-    icon: "fas fa-globe-asia",
-    img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80",
-    theme: "text-[#f27904]",
-    bg: "bg-white text-[#0f458b]",
-    iconBg: "bg-white",
-  },
-  {
-    title: "Car & Bike Transportation",
-    desc: "We treat your vehicle like our own. Enclosed carriers, GPS tracking, and full insurance coverage for cars and two-wheelers across India.",
-    icon: "fas fa-car",
-    img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80",
-    theme: "text-[#0f458b]",
-    bg: "bg-white text-[#0f458b]",
-    iconBg: "bg-white",
-  },
-  {
-    title: "Warehouse Services",
-    desc: "Climate-controlled, secure warehouses with flexible short or long-term storage solutions and 24/7 CCTV surveillance.",
-    icon: "fas fa-warehouse",
-    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80",
-    theme: "text-white",
-    bg: "bg-[#f27904] text-white border-transparent",
-    iconBg: "bg-white/20",
-    overlay: "from-[#f27904]/90",
-    descColor: "text-orange-100"
-  }
-];
+import { services } from "@/data/services";
 
 export default function Services() {
   return (
@@ -91,7 +32,7 @@ export default function Services() {
               <div className="p-6">
                 <h3 className={`font-display text-xl font-bold mb-2`}>{svc.title}</h3>
                 <p className={`${svc.descColor || 'text-gray-600'} text-sm leading-relaxed mb-4`}>{svc.desc}</p>
-                <Link href="#" className={`${svc.bg.includes('text-white') ? 'text-white' : 'text-[#f27904]'} text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all`}>
+                <Link href={`/services/${svc.slug}`} className={`${svc.bg.includes('text-white') ? 'text-white' : 'text-[#f27904]'} text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all`}>
                   Learn More <i className="fas fa-arrow-right text-xs"></i>
                 </Link>
               </div>

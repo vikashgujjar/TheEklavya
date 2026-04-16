@@ -1,4 +1,5 @@
 import "./globals.css";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata = {
   title: "The Eklavya Relocation | Trusted Moving & Shifting Services",
@@ -18,7 +19,10 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         />
       </head>
-      <body className="bg-white text-gray-800">{children}</body>
+      <body className="bg-white text-gray-800">
+        <ScrollReveal />
+        {children}
+      </body>
     </html>
   );
 }
