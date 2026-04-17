@@ -28,15 +28,9 @@ const QueryModal = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [hasBeenShown, isOpen]);
 
-    // Trigger on Route Change
+    // Reset for new pages if desired, but keep it scroll-only
     useEffect(() => {
-        // We want to open it when the pathname changes
-        // But we might want to delay it slightly for better UX
-        const timer = setTimeout(() => {
-            setIsOpen(true);
-        }, 1500); // Open 1.5s after navigating to a new page
-
-        return () => clearTimeout(timer);
+        setHasBeenShown(false);
     }, [pathname]);
 
     useEffect(() => {
