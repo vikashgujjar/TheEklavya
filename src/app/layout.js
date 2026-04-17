@@ -4,6 +4,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata = {
   title: "The Eklavya Relocation | Trusted Moving & Shifting Services",
   description: "India's Trusted Relocation Partner",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 import WhatsAppIcon from "@/components/WhatsAppIcon";
