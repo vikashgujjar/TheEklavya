@@ -10,16 +10,16 @@ export default function About() {
           <div className="reveal relative">
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-3xl overflow-hidden h-64 shadow-xl">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Team packing" className="ic" />
+                <img src="/images/aboutUs/MovingTeam.webp" alt="Team packing" className="ic" />
               </div>
               <div className="rounded-3xl overflow-hidden h-64 shadow-xl mt-8">
-                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Warehouse" className="ic" />
+                <img src="/images/aboutUs/whereHouse.webp" alt="Warehouse" className="ic" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 shadow-xl -mt-4">
-                <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&q=80" alt="Moving team" className="ic" />
+                <img src="/images/aboutUs/MovingTeam.webp" alt="Moving team" className="ic" />
               </div>
               <div className="rounded-3xl overflow-hidden h-48 shadow-xl mt-4">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Happy customer" className="ic" />
+                <img src="/images/aboutUs/HappyCustomer.webp" alt="Happy customer" className="ic" />
               </div>
             </div>
             <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-gray-100 z-10">

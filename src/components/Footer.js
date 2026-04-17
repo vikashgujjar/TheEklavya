@@ -51,7 +51,7 @@ export default function Footer() {
                   { name: "Services", href: "/services" },
                   { name: "Blog", href: "/blog" }, 
                   { name: "Contact Us", href: "/contact" },
-                  { name: "FAQ", href: "/contact" }
+                  { name: "FAQ", href: "/faq" }
                 ].map((link, idx) => (
                   <li key={idx}>
                     <Link href={link.href} className="text-blue-200 text-sm hover:text-[#f27904] transition-colors flex items-center gap-2">
@@ -70,7 +70,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-blue-200 text-sm">
                   <i className="fas fa-phone text-[#f27904] flex-shrink-0"></i>
-                  <a href="tel:+919876543210" className="hover:text-[#f27904]">+91 8683808955</a>
+                  <a href="tel:+918683808955" className="hover:text-[#f27904]">+91 8683808955</a>
                 </li>
                 <li className="flex items-center gap-3 text-blue-200 text-sm">
                   <i className="fas fa-envelope text-[#f27904] flex-shrink-0"></i>
@@ -86,11 +86,11 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-5 flex flex-wrap justify-between items-center gap-4 text-sm text-blue-300">
-            <p>© 2025 The Eklavya Relocation. All rights reserved.</p>
+            <p>© 2026 The Eklavya Relocation. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link href="#" className="hover:text-[#f27904] transition-colors">Privacy Policy</Link>
-              <Link href="#" className="hover:text-[#f27904] transition-colors">Terms of Service</Link>
-              <Link href="#" className="hover:text-[#f27904] transition-colors">Sitemap</Link>
+              <Link href="/privacy-policy" className="hover:text-[#f27904] transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-[#f27904] transition-colors">Terms of Service</Link>
+              <Link href="/sitemap" className="hover:text-[#f27904] transition-colors">Sitemap</Link>
             </div>
           </div>
         </div>

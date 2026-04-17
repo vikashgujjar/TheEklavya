@@ -4,17 +4,17 @@ import Link from "next/link";
 
 const slides = [
   {
-    bg: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80",
+    bg: "/images/home/banner1.webp",
     badgeIcon: "fas fa-shield-alt",
     badgeText: "India's Trusted Relocation Partner",
     title: (
       <>
-        Move Smarter,<br />
-        <span className="text-[#f27904]">Move Safer</span><br />
-        With Eklavya
+        Precision Moving,<br />
+        <span className="text-[#f27904]">Expert Logistics</span><br />
+        Across India
       </>
     ),
-    description: "From household goods to corporate offices — we handle every move with precision, care, and a smile. 15+ years of trusted relocation across India.",
+    description: "Own fleet of modern trucks and a nationwide network. We don't just move boxes; we manage the complex logistics of your entire relocation process.",
     stats: [
       { num: "15K+", label: "Happy Families" },
       { num: "50+", label: "Cities Covered" },
@@ -22,17 +22,17 @@ const slides = [
     ]
   },
   {
-    bg: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80",
+    bg: "/images/home/banner2.webp",
     badgeIcon: "fas fa-globe",
-    badgeText: "Global Reach, Local Expertise",
+    badgeText: "Supply Chain & Global Moving",
     title: (
       <>
-        Corporate &amp;<br />
-        <span className="text-[#f27904]">International</span><br />
-        Moves Made Easy
+        Global Scale,<br />
+        <span className="text-[#f27904]">Local Delivery</span><br />
+        Network
       </>
     ),
-    description: "Seamless corporate relocations and international transportation across 100+ countries. End-to-end logistics, documentation, and dedicated support.",
+    description: "From international sea freight to last-mile local delivery, our transport infrastructure is built for reliability and speed in every corner of the globe.",
     stats: [
       { icon: "fas fa-globe", label: "100+ Countries" },
       { icon: "fas fa-building", label: "500+ Corporate Clients" },
@@ -40,17 +40,17 @@ const slides = [
     ]
   },
   {
-    bg: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1600&q=80",
-    badgeIcon: "fas fa-car",
-    badgeText: "Vehicle Transport Specialists",
+    bg: "/images/home/banner3.webp",
+    badgeIcon: "fas fa-truck",
+    badgeText: "Specialized Transport Fleet",
     title: (
       <>
-        Your Car &amp; Bike,<br />
-        Delivered <span className="text-[#f27904]">Safely</span><br />
-        Across India
+        Modern Fleet,<br />
+        <span className="text-[#f27904]">Seamless Transit</span><br />
+        Solutions
       </>
     ),
-    description: "Fully insured, GPS-tracked vehicle transportation with door-to-door pickup and delivery. Your precious wheels deserve nothing but the best.",
+    description: "Equipped with GPS tracking, hydraulic lifts, and climate control, our specialized transport vehicles ensure your high-value assets travel in safety.",
     stats: [
       { icon: "fas fa-shield-alt", label: "Fully Insured" },
       { icon: "fas fa-map-marker-alt", label: "GPS Tracked" },

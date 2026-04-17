@@ -1,53 +1,68 @@
 export const blogPosts = [
   {
-    slug: "essential-packing-tips",
+    slug: "optimizing-fleet-efficiency",
     theme: "text-[#f27904]",
     bgTheme: "bg-[#f27904]",
-    badge: "Packing Tips",
-    img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
-    date: "March 15, 2025",
-    readTime: "5 min read",
-    title: "10 Essential Packing Tips for a Stress-Free Move",
-    desc: "Discover the professional packing techniques our experts use every day to keep your belongings safe during transit.",
+    badge: "Transport Logistics",
+    img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&q=80",
+    date: "April 10, 2026",
+    readTime: "6 min read",
+    title: "Optimizing Fleet Efficiency for Nationwide Transport",
+    desc: "How modern transport companies utilize advanced route planning and fuel management to ensure on-time delivery across India.",
     content: `
-      Moving can be a daunting task, but with the right packing techniques, you can ensure a smooth transition to your new home. 
-      Here are our top 10 tips for packing like a professional:
+      In the competitive world of nationwide transport, efficiency is the key to success. For a company like Eklavya Relocation, maintaining a fleet of modern trucks is just the beginning. 
+      Real efficiency comes from optimizing every kilometer traveled.
       
-      1. Start early: Don't leave packing for the last minute.
-      2. Use the right size boxes: Put heavy items in small boxes and lighter items in larger boxes.
-      3. Label everything: Clearly mark each box with its contents and the room it belongs to.
-      4. Don't leave gaps: Fill empty spaces in boxes with packing paper or towels.
-      5. Tape well: Use high-quality packing tape to secure the bottom and top of every box.
+      Here are the core strategies used to optimize transport fleet efficiency:
+      
+      1. Dynamic Route Planning: Using real-time traffic data and road condition reports to choose the fastest and safest paths, avoiding unnecessary delays.
+      2. Regular Fleet Maintenance: A well-maintained truck is a fuel-efficient truck. We follow a strict schedule for engine checkups and tire rotations.
+      3. Driver Training Programs: Expert driving significantly impacts fuel consumption and the safety of the goods being transported.
+      4. Payload Optimization: Ensuring every truck is loaded to its maximum safe capacity without overloading, which maintains engine health and performance.
     `
   },
   {
-    slug: "corporate-office-relocation-guide",
+    slug: "gps-tracking-modern-transport",
     theme: "text-[#f27904]",
     bgTheme: "bg-[#0f458b]",
-    badge: "Relocation Guide",
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    date: "February 28, 2025",
-    readTime: "7 min read",
-    title: "The Complete Guide to Corporate Office Relocation",
-    desc: "Planning an office move? Here's everything you need to know to ensure zero downtime and a smooth transition.",
+    badge: "Tech in Transport",
+    img: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=800&q=80",
+    date: "March 22, 2026",
+    readTime: "5 min read",
+    title: "The Role of GPS Tracking in Modern Goods Transportation",
+    desc: "Understand how real-time tracking has revolutionized the trust and safety in the Indian transport and logistics industry.",
     content: `
-      Relocating an office is far more complex than a household move. Business continuity is the priority.
-      A successful corporate move requires a detailed timeline, clear communication with employees, and a specialized team to handle IT infrastructure.
+      Anxiety is a natural part of waiting for high-value goods to arrive. Modern GPS tracking systems have virtually eliminated this 'black hole' phase of transport. 
+      By providing real-time visibility, transport companies can offer unparalleled peace of mind to their customers.
+      
+      Benefits of GPS tracking in transport:
+      
+      - Real-time Location Updates: Customers can see exactly where their shipment is at any given moment.
+      - Accurate ETAs: Better predictive models for when a truck will reach its destination.
+      - Theft Prevention: Geofencing alerts if a vehicle stays off its planned route.
+      - Driver Behavior Monitoring: Tracking speed and braking patterns to ensure the safety of the cargo.
     `
   },
   {
-    slug: "international-moving-checklist",
+    slug: "handling-high-value-cargo",
     theme: "text-[#f27904]",
     bgTheme: "bg-[#f27904]",
-    badge: "International",
-    img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80",
-    date: "January 10, 2025",
+    badge: "Industrial Logistics",
+    img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+    date: "February 15, 2026",
     readTime: "8 min read",
-    title: "International Moving Checklist: Everything You Need to Know",
-    desc: "From visa to customs — a detailed checklist to make your international relocation smooth and hassle-free.",
+    title: "Handling High-Value Cargo: A Logistics Perspective",
+    desc: "Moving expensive industrial machinery and luxury items requires more than just a truck — it requires specialized logistics planning.",
     content: `
-      Moving internationally is a life-changing experience. To ensure success, you need to navigate customs regulations, international shipping logistics, and cultural transitions.
-      Our guide covers everything from passport renewal to finding a school in your new country.
+      Transporting high-value cargo is a high-stakes operation. Whether it's a piece of sensitive medical equipment or a luxury car, the logistical requirements are stringent. 
+      Eklavya Relocation specializes in these premium transport tasks through a combination of specialized containers and white-glove handling.
+      
+      The process of high-value cargo transport involves:
+      
+      - Specialized Packaging: Using anti-static, moisture-proof, and shock-absorbent materials.
+      - Dedicated Security: Often involving sealed containers and supervised transport throughout the journey.
+      - Custom Insurance: Providing comprehensive coverage that reflects the actual market value of the cargo.
+      - Site Surveys: Analyzing origin and destination points for any accessibility challenges before the move begins.
     `
   }
 ];

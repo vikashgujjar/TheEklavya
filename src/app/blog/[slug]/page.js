@@ -38,17 +38,19 @@ export default async function SingleBlogPage({ params }) {
             
             <div className="prose prose-lg prose-slate max-w-none">
                 <div className="flex items-center gap-4 mb-8">
-                    <span className={`${post.bgTheme} text-white px-4 py-1.5 rounded-full text-sm font-bold`}>
+                    <span className={`${post.bgTheme} text-white px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest`}>
                         {post.badge}
                     </span>
-                    <span className="text-gray-400 text-sm flex items-center gap-2">
-                        <i className="fas fa-calendar"></i> {post.date}
+                    <span className="text-gray-400 text-sm font-medium flex items-center gap-2">
+                        <i className="fas fa-calendar-alt text-[#f27904]"></i> {post.date}
                     </span>
                 </div>
                 
-                <div className="text-gray-600 leading-relaxed space-y-6 text-lg">
+                <div className="text-gray-700 leading-relaxed space-y-8 text-xl font-light blog-content-rich">
                     {post.content.split('\n').map((para, i) => para.trim() && (
-                        <p key={i}>{para}</p>
+                        <p key={i} className={para.startsWith('1.') || para.startsWith('2.') || para.startsWith('3.') || para.startsWith('4.') || para.startsWith('-') ? 'font-bold text-[#0f458b] mt-8' : ''}>
+                          {para}
+                        </p>
                     ))}
                 </div>
             </div>

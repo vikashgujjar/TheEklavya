@@ -7,7 +7,7 @@ export default function BlogGridUnique() {
     <section className="py-24 bg-slate-50 relative overflow-hidden">
       {/* Decorative Text */}
       <div className="absolute top-10 left-[-5%] text-[150px] font-bold text-gray-100/50 pointer-events-none select-none leading-none rotate-[-5deg] z-0">
-         OUR BLOG
+         TRANSPORT
       </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -60,8 +60,8 @@ export default function BlogGridUnique() {
                 {/* Subscription Box */}
                 <div className="bg-[#0f458b] rounded-[2.5rem] p-10 text-white relative overflow-hidden reveal">
                     <div className="relative z-10">
-                        <h3 className="text-2xl font-bold mb-4 leading-tight">Get Relocation Tips in Your Inbox</h3>
-                        <p className="text-blue-200 text-sm mb-8">No spam, just expert advice to help you move.</p>
+                        <h3 className="text-2xl font-bold mb-4 leading-tight">Expert Logistics In Your Inbox</h3>
+                        <p className="text-blue-200 text-sm mb-8">Stay updated with the latest in Indian transport technology.</p>
                         <div className="relative">
                             <input type="email" placeholder="Email address" className="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 outline-none focus:bg-white/20 transition-all text-sm mb-4" />
                             <button className="w-full bg-[#f27904] text-white py-4 rounded-2xl font-bold hover:bg-orange-600 transition-all">SUBSCRIBE</button>

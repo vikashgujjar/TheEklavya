@@ -6,6 +6,9 @@ export const metadata = {
   description: "India's Trusted Relocation Partner",
 };
 
+import WhatsAppIcon from "@/components/WhatsAppIcon";
+import QueryModal from "@/components/QueryModal";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -22,6 +25,8 @@ export default function RootLayout({ children }) {
       <body className="bg-white text-gray-800">
         <ScrollReveal />
         {children}
+        <WhatsAppIcon />
+        <QueryModal />
       </body>
     </html>
   );
