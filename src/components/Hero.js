@@ -1,20 +1,21 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Swal from 'sweetalert2';
 
 const slides = [
   {
     bg: "/images/home/banner1.webp",
     badgeIcon: "fas fa-shield-alt",
-    badgeText: "India's Trusted Relocation Partner",
+    badgeText: "Best Packers and Movers in Chandigarh",
     title: (
       <>
-        Precision Moving,<br />
-        <span className="text-[#f27904]">Expert Logistics</span><br />
-        Across India
+        Reliable Shifting,<br />
+        <span className="text-[#f27904]">Expert Packers</span><br />
+        In Chandigarh
       </>
     ),
-    description: "Own fleet of modern trucks and a nationwide network. We don't just move boxes; we manage the complex logistics of your entire relocation process.",
+    description: "Eklavya Relocation provides premium household and office shifting services with 100% safety and insurance. Your most trusted relocation partner in Chandigarh.",
     stats: [
       { num: "15K+", label: "Happy Families" },
       { num: "50+", label: "Cities Covered" },
@@ -62,6 +63,18 @@ const slides = [
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mobileFormOpen, setMobileFormOpen] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    movingFrom: '',
+    movingTo: '',
+    service: '',
+  });
+
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -72,6 +85,96 @@ export default function Hero() {
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (errors[name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Invalid email';
+    }
+    if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
+    if (!formData.movingFrom.trim()) newErrors.movingFrom = 'Origin is required';
+    if (!formData.movingTo.trim()) newErrors.movingTo = 'Destination is required';
+    if (!formData.service || formData.service.includes('Select')) newErrors.service = 'Select service';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Validation Error',
+        text: 'Please fill in all required fields correctly.',
+        confirmButtonColor: '#f27904',
+      });
+      return;
+    }
+
+    setLoader(true);
+
+    const payload = {
+      company: "Eklavya Relocation",
+      company_name: "Eklavya Relocation",
+      moveType: "Hero Section Form",
+      mail_to: "theeklavyarelocation007@gmail.com",
+      ...formData,
+    };
+
+    try {
+      const response = await fetch(
+        "https://mail.futuretouch.org/api/send-message",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (response.ok) {
+        await Swal.fire({
+          icon: "success",
+          title: "Quote Requested!",
+          text: "Your request has been submitted successfully.",
+          confirmButtonColor: '#f27904',
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          movingFrom: '',
+          movingTo: '',
+          service: '',
+        });
+        setErrors({});
+      } else {
+        Swal.fire("Error", "Failed to submit request.", "error");
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire("Error", "Something went wrong!", "error");
+    } finally {
+      setLoader(false);
+    }
+  };
 
   return (
     <section id="heroSection" className="relative min-h-auto overflow-hidden py-[30px] md:py-[30px]">
@@ -110,10 +213,10 @@ export default function Hero() {
                     {slide.description}
                   </p>
                   <div className="flex flex-wrap gap-3 mb-10">
-                    <Link href="#services" className="inline-flex items-center gap-2 bg-[#f27904] text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-500 transition-all shadow-xl hover:-translate-y-0.5">
-                      Explore Services <i className="fas fa-arrow-right text-sm"></i>
+                    <Link href="#services" className="inline-flex items-center gap-2 bg-[#f27904] text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-orange-500 transition-all shadow-xl hover:-translate-y-0.5">
+                      Explore Services <i className="fas fa-arrow-right text-xs"></i>
                     </Link>
-                    <Link href="#about" className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white border border-white/30 px-6 py-3 rounded-full font-semibold hover:bg-white/25 transition-all">
+                    <Link href="#about" className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white border border-white/30 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-white/25 transition-all">
                       Learn More
                     </Link>
                   </div>
@@ -154,17 +257,57 @@ export default function Hero() {
                   <div className="bg-white rounded-2xl p-5 shadow-2xl border border-gray-100 text-gray-800">
                     <h3 className="font-display text-xl font-bold text-[#0f458b] mb-1">Get a Free Quote</h3>
                     <p className="text-gray-500 text-xs mb-4">We'll call you back within 2 hours!</p>
-                    <div className="space-y-3">
+                    <form className="space-y-3" onSubmit={handleSubmit}>
                       <div className="grid grid-cols-2 gap-2">
-                        <input type="text" placeholder="Name" className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm transition-all" />
-                        <input type="email" placeholder="Email Address" className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm transition-all" />
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Name"
+                          className={`w-full border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-xl px-3 py-2.5 text-sm transition-all`}
+                        />
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="Email Address"
+                          className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-xl px-3 py-2.5 text-sm transition-all`}
+                        />
                       </div>
-                      <input type="tel" placeholder="Phone Number" className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm transition-all" />
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Phone Number"
+                        className={`w-full border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-xl px-3 py-2.5 text-sm transition-all`}
+                      />
                       <div className="grid grid-cols-2 gap-2">
-                        <input type="text" placeholder="Moving From" className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm transition-all" />
-                        <input type="text" placeholder="Moving To" className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm transition-all" />
+                        <input
+                          type="text"
+                          name="movingFrom"
+                          value={formData.movingFrom}
+                          onChange={handleChange}
+                          placeholder="Moving From"
+                          className={`w-full border ${errors.movingFrom ? 'border-red-500' : 'border-gray-200'} rounded-xl px-3 py-2.5 text-sm transition-all`}
+                        />
+                        <input
+                          type="text"
+                          name="movingTo"
+                          value={formData.movingTo}
+                          onChange={handleChange}
+                          placeholder="Moving To"
+                          className={`w-full border ${errors.movingTo ? 'border-red-500' : 'border-gray-200'} rounded-xl px-3 py-2.5 text-sm transition-all`}
+                        />
                       </div>
-                      <select className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm text-gray-700 transition-all">
+                      <select
+                        name="service"
+                        value={formData.service}
+                        onChange={handleChange}
+                        className={`w-full border ${errors.service ? 'border-red-500' : 'border-gray-200'} rounded-xl px-3 py-2.5 text-sm text-gray-700 transition-all`}
+                      >
                         <option>Select a service...</option>
                         <option>Local Household Shifting</option>
                         <option>Domestic Shifting</option>
@@ -173,10 +316,14 @@ export default function Hero() {
                         <option>Car &amp; Bike Transportation</option>
                         <option>Warehouse Services</option>
                       </select>
-                      <button className="w-full bg-[#f27904] text-white py-3 rounded-xl font-semibold text-sm hover:bg-orange-600 transition-all flex items-center justify-center gap-2">
-                        <i className="fas fa-paper-plane"></i> Request Free Quote
+                      <button
+                        disabled={loader}
+                        className="w-full bg-[#f27904] text-white py-3 rounded-xl font-semibold text-sm hover:bg-orange-600 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+                      >
+                        {loader ? <i className="fas fa-circle-notch animate-spin"></i> : <i className="fas fa-paper-plane"></i>}
+                        {loader ? 'Sending...' : 'Request Free Quote'}
                       </button>
-                    </div>
+                    </form>
                   </div>
                 </div>
               )}
@@ -186,34 +333,74 @@ export default function Hero() {
               <div className="bg-white rounded-3xl shadow-2xl p-7 xl:p-8 border border-gray-100 text-gray-800">
                 <h3 className="font-display text-2xl font-bold text-[#0f458b] mb-1">Get a Free Quote</h3>
                 <p className="text-gray-500 text-sm mb-5">Fill in details — we'll call you within 2 hours!</p>
-                <div className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">First Name</label>
-                      <input type="text" placeholder="Rahul" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm transition-all" />
+                      <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Rahul"
+                        className={`w-full border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm transition-all`}
+                      />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">Email Address</label>
-                      <input type="email" placeholder="rahul@example.com" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm transition-all" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="rahul@example.com"
+                        className={`w-full border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm transition-all`}
+                      />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">Phone Number</label>
-                    <input type="tel" placeholder="+91 8683808955" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm transition-all" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 8683808955"
+                      className={`w-full border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm transition-all`}
+                    />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">Moving From</label>
-                      <input type="text" placeholder="Delhi" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm transition-all" />
+                      <input
+                        type="text"
+                        name="movingFrom"
+                        value={formData.movingFrom}
+                        onChange={handleChange}
+                        placeholder="Delhi"
+                        className={`w-full border ${errors.movingFrom ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm transition-all`}
+                      />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">Moving To</label>
-                      <input type="text" placeholder="Mumbai" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm transition-all" />
+                      <input
+                        type="text"
+                        name="movingTo"
+                        value={formData.movingTo}
+                        onChange={handleChange}
+                        placeholder="Mumbai"
+                        className={`w-full border ${errors.movingTo ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm transition-all`}
+                      />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-500 mb-1 uppercase tracking-wide">Service Required</label>
-                    <select className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 transition-all">
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className={`w-full border ${errors.service ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3 text-sm text-gray-700 transition-all`}
+                    >
                       <option>Select a service...</option>
                       <option>Local Household Shifting</option>
                       <option>Domestic Shifting Services</option>
@@ -223,11 +410,15 @@ export default function Hero() {
                       <option>Warehouse Services</option>
                     </select>
                   </div>
-                  <button className="w-full bg-[#f27904] text-white py-3.5 rounded-xl font-semibold text-sm hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                    <i className="fas fa-paper-plane"></i> Request Free Quote
+                  <button
+                    disabled={loader}
+                    className="w-full bg-[#f27904] text-white py-3.5 rounded-xl font-semibold text-sm hover:bg-orange-600 transition-all shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-70"
+                  >
+                    {loader ? <i className="fas fa-circle-notch animate-spin"></i> : <i className="fas fa-paper-plane"></i>}
+                    {loader ? 'Sending...' : 'Request Free Quote'}
                   </button>
                   <p className="text-center text-xs text-gray-400">No hidden charges • 100% Secure • Quick Response</p>
-                </div>
+                </form>
               </div>
             </div>
 

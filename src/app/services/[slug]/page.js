@@ -24,34 +24,34 @@ export default async function SingleServicePage({ params }) {
     <>
       <Header />
       <main>
-        <PageHero 
-          title={service.title} 
+        <PageHero
+          title={service.title}
           subtitle={service.desc}
           bgImage={service.img}
         />
-        
+
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-3 gap-12">
               {/* Main Content */}
               <div className="lg:col-span-2 reveal">
                 <div className="mb-12 overflow-hidden rounded-[40px] shadow-2xl relative group h-[450px]">
-                    <img 
-                      src={service.img} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-8 left-8">
-                       <div className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-2 rounded-full text-white font-bold text-sm">
-                          <i className="fas fa-camera mr-2"></i> Actual Service Deployment
-                       </div>
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-8 left-8">
+                    <div className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-2 rounded-full text-white font-bold text-sm">
+                      <i className="fas fa-camera mr-2"></i> Actual Service Deployment
                     </div>
+                  </div>
                 </div>
-                
+
                 <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 mb-12">
                   <h2 className="text-3xl font-display font-bold text-[#0f458b] mb-8 border-l-4 border-[#f27904] pl-6 italic">Professional Excellence</h2>
-                  <div 
+                  <div
                     className="prose prose-lg prose-blue max-w-none text-gray-700 service-content"
                     dangerouslySetInnerHTML={{ __html: service.longContent }}
                   />
@@ -93,21 +93,21 @@ export default async function SingleServicePage({ params }) {
                 </div>
 
                 <div className="bg-slate-900 p-12 rounded-[40px] text-white relative overflow-hidden group shadow-2xl">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#f27904] rounded-full blur-[100px] opacity-20 -mr-32 -mt-32 transition-opacity group-hover:opacity-30"></div>
-                    <div className="relative z-10">
-                        <span className="text-[#f27904] font-bold tracking-widest uppercase text-sm mb-4 block">Take the first step</span>
-                        <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">Ready to Experience <br/><span className="text-[#f27904]">Premium Relocation?</span></h3>
-                        <p className="text-gray-400 mb-10 max-w-lg text-lg leading-relaxed">Join 5000+ happy customers who trusted Eklavya for their {service.title.toLowerCase()}. Get a precise quote in minutes.</p>
-                        <div className="flex flex-wrap gap-4">
-                          <Link href="/contact" className="inline-flex items-center gap-3 bg-[#f27904] text-white px-10 py-4 rounded-full font-bold hover:bg-orange-600 transition-all hover:translate-y-[-2px] shadow-lg shadow-orange-500/20">
-                              Get Free Quote <i className="fas fa-paper-plane"></i>
-                          </Link>
-                          <a href="tel:+918683808955" className="inline-flex items-center gap-3 bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">
-                              <i className="fas fa-phone-alt"></i> Call Now
-                          </a>
-                        </div>
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-[#f27904] rounded-full blur-[100px] opacity-20 -mr-32 -mt-32 transition-opacity group-hover:opacity-30"></div>
+                  <div className="relative z-10">
+                    <span className="text-[#f27904] font-bold tracking-widest uppercase text-sm mb-4 block">Take the first step</span>
+                    <h3 className="text-3xl md:text-4xl font-display font-bold mb-6">Ready to Experience <br /><span className="text-[#f27904]">Premium Relocation?</span></h3>
+                    <p className="text-gray-400 mb-10 max-w-lg text-lg leading-relaxed">Join 5000+ happy customers who trusted Eklavya for their {service.title.toLowerCase()}. Get a precise quote in minutes.</p>
+                    <div className="flex flex-wrap gap-4">
+                      <Link href="/contact" className="inline-flex items-center gap-3 bg-[#f27904] text-white px-10 py-4 rounded-full font-bold hover:bg-orange-600 transition-all hover:translate-y-[-2px] shadow-lg shadow-orange-500/20">
+                        Get Free Quote <i className="fas fa-paper-plane"></i>
+                      </Link>
+                      <a href="tel:+918683808955" className="inline-flex items-center gap-3 bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all">
+                        <i className="fas fa-phone-alt"></i> Call Now
+                      </a>
                     </div>
-                    <i className={`${service.icon} absolute -bottom-12 -right-12 text-[260px] text-white/5 transform -rotate-12 transition-transform duration-700 group-hover:rotate-0`}></i>
+                  </div>
+                  <i className={`${service.icon} absolute -bottom-12 -right-12 text-[260px] text-white/5 transform -rotate-12 transition-transform duration-700 group-hover:rotate-0`}></i>
                 </div>
               </div>
 
@@ -118,7 +118,7 @@ export default async function SingleServicePage({ params }) {
                     <h3 className="text-xl font-bold text-[#0f458b] mb-6">All Services</h3>
                     <div className="flex flex-col gap-3">
                       {services.map((svc) => (
-                        <Link 
+                        <Link
                           key={svc.slug}
                           href={`/services/${svc.slug}`}
                           className={`flex items-center justify-between p-4 rounded-xl font-semibold transition-all ${svc.slug === params.slug ? 'bg-[#f27904] text-white shadow-lg' : 'bg-white text-gray-700 hover:bg-orange-50 hover:text-[#f27904]'}`}
@@ -134,12 +134,12 @@ export default async function SingleServicePage({ params }) {
                     <h3 className="text-xl font-bold mb-4">Need Help?</h3>
                     <p className="text-white/90 mb-6 text-sm">Speak with our relocation experts for immediate assistance.</p>
                     <div className="flex flex-col gap-4">
-                        <a href="tel:+918683808955" className="flex items-center gap-3 bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all font-bold">
-                            <i className="fas fa-phone-alt"></i> +91 8683808955
-                        </a>
-                        <a href="mailto:info@eklavyarelocation.com" className="flex items-center gap-3 bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all font-bold">
-                            <i className="fas fa-envelope"></i> info@eklavyarelocation.com
-                        </a>
+                      <a href="tel:+918683808955" className="flex items-center gap-3 bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all font-bold">
+                        <i className="fas fa-phone-alt"></i> +91 8683808955
+                      </a>
+                      <a href="mailto:theeklavyarelocation007@gmail.com" className="flex items-center gap-3 bg-white/20 p-4 rounded-xl hover:bg-white/30 transition-all font-bold">
+                        <i className="fas fa-envelope"></i> theeklavyarelocation007@gmail.com
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default async function SingleServicePage({ params }) {
             </div>
           </div>
         </section>
-        
+
         <CTA />
       </main>
       <Footer />

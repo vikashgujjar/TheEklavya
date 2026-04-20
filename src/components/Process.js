@@ -13,9 +13,7 @@ export default function Process() {
     <section id="process" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16 reveal">
-          <span className="inline-flex items-center gap-2 bg-brand-lightOrange text-brand-orange text-sm font-semibold px-4 py-2 rounded-full mb-4">
-            <i className="fas fa-tasks text-xs"></i> How It Works
-          </span>
+          <span className="inline-flex items-center gap-2 bg-[#e8f0fb] text-[#0f458b] text-sm font-semibold px-4 py-1.5 rounded-full mb-4"><i className="fas fa-tasks text-xs"></i> How It Works</span>
           <h2 className="font-display text-4xl lg:text-5xl font-bold text-brand-blue mb-4">
             Our Simple <span className="gt">Work Process</span>
           </h2>

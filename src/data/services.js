@@ -78,10 +78,10 @@ export const services = [
     bg: "bg-white text-[#0f458b]",
     iconBg: "bg-white",
     features: [
-        "Multi-layer high-quality packing",
-        "Dedicated move coordinator",
-        "Vehicle tracking & updates",
-        "Comprehensive insurance coverage"
+      "Multi-layer high-quality packing",
+      "Dedicated move coordinator",
+      "Vehicle tracking & updates",
+      "Comprehensive insurance coverage"
     ]
   },
   {
@@ -125,10 +125,10 @@ export const services = [
     overlay: "from-[#0f458b]/85",
     descColor: "text-blue-200",
     features: [
-        "IT Infrastructure relocation",
-        "Off-hours & weekend shifting",
-        "Employee relocation programs",
-        "Asset management & labeling"
+      "IT Infrastructure relocation",
+      "Off-hours & weekend shifting",
+      "Employee relocation programs",
+      "Asset management & labeling"
     ]
   },
   {
@@ -169,10 +169,10 @@ export const services = [
     bg: "bg-white text-[#0f458b]",
     iconBg: "bg-white",
     features: [
-        "Air & Sea freight options",
-        "Customs documentation support",
-        "International standard packing",
-        "Global partner network"
+      "Air & Sea freight options",
+      "Customs documentation support",
+      "International standard packing",
+      "Global partner network"
     ]
   },
   {
@@ -213,10 +213,10 @@ export const services = [
     bg: "bg-white text-[#0f458b]",
     iconBg: "bg-white",
     features: [
-        "Enclosed vehicle carriers",
-        "Hydraulic loading systems",
-        "Scratch-free handling",
-        "On-time delivery guarantee"
+      "Enclosed vehicle carriers",
+      "Hydraulic loading systems",
+      "Scratch-free handling",
+      "On-time delivery guarantee"
     ]
   },
   {
@@ -259,10 +259,10 @@ export const services = [
     overlay: "from-[#f27904]/90",
     descColor: "text-orange-100",
     features: [
-        "24/7 CCTV Surveillance",
-        "Daily/Weekly/Monthly plans",
-        "Climate-controlled environment",
-        "Inventory tracking & reporting"
+      "24/7 CCTV Surveillance",
+      "Daily/Weekly/Monthly plans",
+      "Climate-controlled environment",
+      "Inventory tracking & reporting"
     ]
   }
 ];

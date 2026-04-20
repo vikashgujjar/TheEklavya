@@ -38,33 +38,40 @@ export default function About() {
           </div>
           <div className="reveal">
             <span className="inline-flex items-center gap-2 bg-[#fff4e8] text-[#f27904] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
-              <i className="fas fa-info-circle text-xs"></i> About The Eklavya Relocation
+              <i className="fas fa-info-circle text-xs"></i> Expert Packers and Movers
             </span>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-[#0f458b] leading-tight mb-6">
-              We Make Your Move<br />Our <span className="gt">Responsibility</span>
+              A Certified Moving Company in <span className="gt">Chandigarh</span>
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              The Eklavya Relocation has been India's most trusted moving partner since 2009. With a team of 500+ trained professionals and a fleet of modern vehicles, we ensure every move is executed with the highest standards of safety, efficiency, and care.
+            <p className="text-gray-600 leading-relaxed mb-4 font-medium">
+              Eklavya Relocation is a leading name in the packers and movers industry, providing top-notch relocation services for households, offices, and vehicles since 2009.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-8">
-              Whether you're moving your home across the street or relocating your business across continents, our end-to-end logistics solutions are designed to make your transition seamless and memorable.
+            <p className="text-gray-600 leading-relaxed mb-6">
+              We understand that relocating your home or office is not just about moving boxes; it's about moving your life and memories. Our mission is to provide a stress-free, safe, and efficient moving experience using high-quality packing materials, modern transportation, and a team of highly trained professionals who treat your belongings as their own.
             </p>
-            <div className="grid grid-cols-2 gap-3 mb-8">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                "Pan-India Network", "GPS Tracking", "Goods Insurance",
-                "24/7 Support", "Trained Packers", "On-Time Delivery"
+                { title: "99% Success Rate", icon: "fa-chart-line" },
+                { title: "Transparent Pricing", icon: "fa-search-dollar" },
+                { title: "24/7 Live Tracking", icon: "fa-map-marker-alt" },
+                { title: "Verified Professionals", icon: "fa-user-check" }
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <div className="w-7 h-7 bg-[#fff4e8] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <i className="fas fa-check text-[#f27904] text-xs"></i>
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-[#f27904]">
+                    <i className={`fas ${item.icon}`}></i>
                   </div>
-                  <span className="text-sm font-medium text-gray-700">{item}</span>
+                  <span className="text-sm font-bold text-[#0f458b]">{item.title}</span>
                 </div>
               ))}
             </div>
-            <Link href="#services" className="inline-flex items-center gap-2 bg-[#0f458b] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-blue-900 transition-all shadow-lg hover:-translate-y-0.5">
-              Explore Services <i className="fas fa-arrow-right text-sm"></i>
-            </Link>
+            <div className="flex flex-wrap gap-4">
+              <Link href="#services" className="inline-flex items-center gap-2 bg-[#0f458b] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-blue-900 transition-all shadow-lg hover:-translate-y-0.5">
+                Our Services <i className="fas fa-plus text-xs"></i>
+              </Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 border-2 border-[#f27904] text-[#f27904] px-7 py-3.5 rounded-full font-semibold hover:bg-[#f27904] hover:text-white transition-all">
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </div>
